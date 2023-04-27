@@ -60,12 +60,14 @@ class App extends Component {
   }
 
   handleFormSubmit = searchQuery => {
-    this.setState({
-      searchQuery: searchQuery,
-      images: [],
-      page: 1,
-      showErrorMessage: false,
-    });
+    if (searchQuery !== this.state.searchQuery) {
+      this.setState(() => ({
+        searchQuery: searchQuery,
+        images: [],
+        page: 1,
+        showErrorMessage: false,
+      }));
+    }
   };
 
   toggleModal = () => {
